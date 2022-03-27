@@ -1,23 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import './scss/index.scss';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <div className="main-body">
+      <header>
+        <h1>pomodoro</h1>
       </header>
+      <main>
+        <section className="options">
+          <div>
+            <input type="radio" id="pomodoro" name="options" defaultChecked/>
+            <label htmlFor="pomodoro">pomodoro</label>
+            <input type="radio" id="shortbreak" name="options" />
+            <label htmlFor="shortbreak">short break</label>
+            <input type="radio" id="longbreak" name="options" />
+            <label htmlFor="longbreak">long break</label>
+          </div>
+        </section>
+        <section></section>
+        <section></section>
+      </main>
     </div>
   );
 }
