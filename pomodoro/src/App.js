@@ -225,7 +225,7 @@ function App() {
             <div className='settings-details'>
               <h4>TIME (MINUTES)</h4>
               <div className='times'>
-                <div>
+                <div className='times-container'>
                   <span className='times-ttl'>pomodoro</span>
                   <div className='times-counts'>
                     <span className='times-num'>{pomodoro}</span>
@@ -239,7 +239,7 @@ function App() {
                     </div>
                   </div>
                 </div>
-                <div>
+                <div className='times-container'>
                   <span className='times-ttl'>short break</span>
                   <div className='times-counts'>
                     <span className='times-num'>{short}</span>
@@ -253,7 +253,7 @@ function App() {
                     </div>
                    </div>
                 </div>
-                <div>
+                <div className='times-container'>
                   <span className='times-ttl'>long break</span>
                   <div className='times-counts'>
                     <span className='times-num'>{long}</span>

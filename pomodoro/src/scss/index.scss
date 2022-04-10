@@ -27,12 +27,16 @@ ol, ul {
   list-style-type: none;
 }
 
-
-
+:root {
+  --picked-color: #F87070;
+  --picked-font: 'Kumbh Sans', sans-serif;
+}
 
 .main-body {
   background-color: $base-color;
-  height: 100vh;
+  min-height: 100vh;
+  height: 100%;
+  position: relative;
 }
 
 header {
@@ -40,7 +44,7 @@ header {
   text-align: center;
 
   h1 {
-    font-family: $kumbh-sans;
+    font-family: var(--picked-font);
     font-size: 32px;
     font-weight: 700;
     padding-top: 48px;
@@ -62,6 +66,18 @@ header {
     align-items: center;
     justify-content: space-around;
     padding: 8px 7px;
+
+    @media screen and (max-width: 1300px) {
+      width: 40%;
+    }
+
+    @media screen and (max-width: 1000px) {
+      width: 60%;
+    }
+
+    @media screen and (max-width: 670px) {
+      width: 80%;
+    }
   }
 
   input[type=radio] {
@@ -69,7 +85,7 @@ header {
   }
 
   input[type="radio"]:checked + label {
-    background: $red-color;
+    background: var(--picked-color);
     color: $navy-color;
     transition: all .3s ease-out;
   }
@@ -78,9 +94,400 @@ header {
     padding: 19px 25px;
     display: block;
     border-radius: 100px;
-    font-family: $kumbh-sans;
+    font-family: var(--picked-font);
     font-size: 14px;
     font-weight: 700;
     color: $grey-color;
+  }
+}
+
+.timer {
+  margin-top: 50px;
+
+  &-bg {
+    width: 35% !important;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 40px;
+    border-radius: 50%;
+    background: linear-gradient(315deg, #2E325A 0%, #0E112A 100%);
+    box-shadow: -50px -50px 100px #272C5A, 50px 50px 100px #121530;
+    position: relative;
+    z-index: 0;
+
+    @media screen and (max-width: 1200px) {
+      width: 45% !important;
+    }
+
+    @media screen and (max-width: 750px) {
+      padding: 20px;
+    }
+
+    @media screen and (max-width: 550px) {
+      width: 65% !important;
+    }
+
+    @media screen and (max-width: 375px) {
+      width: 75% !important;
+    }
+  }
+}
+
+.isPaused {
+  font-size: 16px;
+  font-family: var(--picked-font);
+  font-weight: 700;
+  letter-spacing: 15px;
+  background-color: transparent;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: $grey-color;
+  border: none;
+  z-index: 1;
+
+  #number {
+    font-size: 100px;
+    font-family: var(--picked-font);
+    font-weight: 700;
+    letter-spacing: -5px;
+    color: $grey-color;
+    text-align: center;
+
+    @media screen and (max-width: 900px) {
+      font-size: 80px;
+    }
+
+    @media screen and (max-width: 750px) {
+      font-size: 60px;
+    }
+  }
+
+  span {
+    padding-left: 30px;
+    padding-top: 30px;
+  }
+
+  &:hover {
+    span {
+      color: var(--picked-color);
+    }
+  }
+}
+
+.setting-btn {
+  text-align: center;
+  padding: 100px 0;
+
+  @media screen and (max-width: 375px) {
+    padding: 50px 0;
+  }
+
+  button {
+    background-color: transparent;
+    border: none;
+  }
+}
+
+#settings {
+  width: 100%;
+  height: 100vh;
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: none;
+  background: rgba(10, 12, 28, 0.5);
+}
+
+.settings {
+  &-inner {
+    width: 40%;
+    background-color: $white-color;
+    border-radius: 25px;
+    margin-top: 210px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+
+    @media screen and (max-width: 1440px) {
+      width: 50%;
+    }
+
+    @media screen and (max-width: 1150px) {
+      width: 60%;
+    }
+
+    @media screen and (max-width: 915px) {
+      width: 70%;
+    }
+
+    @media screen and (max-width: 530px) {
+      width: 80%;
+      margin-top: 50px;
+    }
+
+    @media screen and (max-width: 375px) {
+      width: 90%;
+      margin-top: 20px;
+    }
+
+    hr {
+      border-top: transparent;
+      border-bottom: 1px solid $cream-color;
+    }
+
+    .apply-btn {
+      position: absolute;
+      bottom: -30px;
+      left: 50%;
+      transform: translate(-50%);
+      padding: 21px 47px;
+      color: $white-color;
+      background: $red-color;
+      border: 1px solid $red-color;
+      border-radius: 100px;
+      font-family: $kumbh-sans;
+      font-size: 16px;
+      font-weight: 700;
+      text-align: center;
+      &:hover {
+        background: #FFAAAA;
+        transition: all .3s ease;
+        border: 1px solid #FFAAAA;
+      }
+    }
+  }
+
+  &-ttl {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 25px 40px;
+
+    @media screen and (max-width: 530px) {
+      padding: 15px 20px;
+    }
+
+    h2 {
+      font-family: $kumbh-sans;
+      font-size: 28px;
+      font-weight: 700;
+      color: $navy-color;
+    }
+
+    button {
+      border: none;
+      background-color: transparent;
+    }
+  }
+
+  &-details {
+    padding: 25px 40px 60px 40px;
+
+    @media screen and (max-width: 530px) {
+      padding: 25px 20px 60px 20px;
+    }
+
+    @media screen and (max-width: 375px) {
+      padding: 5px 20px 60px 20px;
+    }
+
+    h4 {
+      font-family: $kumbh-sans;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 5px;
+      color: $navy-color;
+
+      @media screen and (max-width: 770px) {
+        text-align: center;
+      }
+    }
+
+    .times {
+      display: flex;
+      align-items: center;
+      padding: 24px 0;
+      justify-content: space-between;
+
+      @media screen and (max-width: 770px) {
+        flex-direction: column;
+        width: 100%;
+      }
+
+      @media screen and (max-width: 375px) {
+        padding: 10px 0;
+      }
+
+      &-container {
+        display: flex;
+        flex-direction: column;
+
+        @media screen and (max-width: 770px) {
+          flex-direction: row;
+          justify-content: space-around;
+          align-items: center;
+          width: 100%;
+        }
+      }
+
+      &-ttl {
+        font-family: $kumbh-sans;
+        font-size: 12px;
+        font-weight: 700;
+        color: $base-color;
+        mix-blend-mode: normal;
+        opacity: 0.4;
+        margin-bottom: 5px;
+      }
+
+      &-counts {
+        width: 150px;
+        margin-top: 8px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: $cream-color;
+        border-radius: 10px;
+        padding: 10px 15px;
+
+        @media screen and (max-width: 770px) {
+          width: 190px;
+        }
+
+        @media screen and (max-width: 375px) {
+          width: 130px;
+        }
+      }
+
+      &-num {
+        font-family: $kumbh-sans;
+        font-size: 14px;
+        font-weight: 700;
+        color: $navy-color;
+      }
+
+      &-btn {
+        display: flex;
+        flex-direction: column;
+        button {
+          border: none;
+          background-color: transparent;
+        }
+      }
+    }
+  }
+
+  &-font {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px 0;
+
+    @media screen and (max-width: 770px) {
+      flex-direction: column;
+      height: 120px;
+    }
+
+    @media screen and (max-width: 375px) {
+      height: 90px;
+      padding: 10px 0 20px 0;
+    }
+
+    .fonts {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      label {
+        margin-right: 16px;
+        border-radius: 50%;
+        background: $cream-color;
+        color: $navy-color;
+      }
+
+      input[type=radio] {
+        display: none;
+      }
+
+      input[type="radio"]:checked + label {
+        background: $navy-color;
+        color: $white-color;
+        transition: all .3s ease-out;
+      }
+
+      .kumbh-sans {
+        font-family: $kumbh-sans;
+        padding: 13px;
+      }
+
+      .roboto-slab {
+        font-family: $roboto-slab;
+        padding: 12px 13px;
+      }
+
+      .space-mono {
+        font-family: $space-mono;
+        padding: 11px 13px;
+      }
+    }
+  }
+
+  &-color {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px 0;
+
+    @media screen and (max-width: 770px) {
+      flex-direction: column;
+      height: 120px;
+    }
+
+    @media screen and (max-width: 375px) {
+      height: 90px;
+      padding: 10px 0 20px 0;
+    }
+
+    .colors {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      label {
+        margin-right: 16px;
+        border-radius: 50%;
+        padding: 13px;
+        img {
+          visibility: hidden;
+        }
+      }
+
+      input[type=radio] {
+        display: none;
+      }
+
+      input[type="radio"]:checked + label {
+        img {
+          visibility: visible;
+        }
+      }
+
+      .red {
+        background-color: $red-color;
+      }
+
+      .blue {
+        background-color: $blue-color;
+      }
+
+      .purple {
+        background-color: $purple-color;
+      }
+    }
   }
 }
