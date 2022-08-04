@@ -78,6 +78,10 @@ header {
     @media screen and (max-width: 670px) {
       width: 80%;
     }
+
+    @media screen and (max-width: 375px) {
+      width: 95%;
+    }
   }
 
   input[type=radio] {
@@ -106,7 +110,7 @@ header {
 
   &-bg {
     width: 35% !important;
-    max-width: 500px;
+    max-width: 400px;
     margin: 0 auto;
     padding: 40px;
     border-radius: 50%;
@@ -206,6 +210,7 @@ header {
 .settings {
   &-inner {
     width: 40%;
+    max-width: 600px;
     background-color: $white-color;
     border-radius: 25px;
     margin-top: 210px;
@@ -461,7 +466,8 @@ header {
       label {
         margin-right: 16px;
         border-radius: 50%;
-        padding: 13px;
+        padding: 12px 13px;
+
         img {
           visibility: hidden;
         }
